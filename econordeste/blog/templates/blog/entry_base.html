@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_blog %} active{% endblock %}
+
+{% block content %}
+
+			<!-- Inner Page Content // Start -->
+
+			<div class="inner-page">
+				<div class="container">
+					<div class="row">
+						<!-- Main-bar Column -->
+						<div class="col-md-12">
+							<div class="page-mainbar blog">
+								<!-- Heading -->
+								<h3>Notícias <small class="white">{% if search %}busca por "{{ search }}"{% endif %}</small></h3>
+								<!-- Blog Page Content -->
+								<div class="blog-content">
+									<div class="row">
+										<div class="col-md-8 col-sm-8">
+
+											{% block post %}
+
+											{% endblock post %}
+
+											<div class="clearfix"></div>
+											<!-- Blog post End -->
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="blog-sidebar white">
+												<!-- Sidebar widget -->
+												<!-- First -->
+												<div class="side-widget br-green">
+													<h4>Busca</h4>
+													<div class="widget-content">
+														<!-- search button and input box -->
+														<form role="form" action="." method="get" class="form-inline bform">
+															<!-- /input-group -->
+															<div class="input-group">
+																<input id="search" name="search" type="text" class="form-control" placeholder="Buscar Notícia">
+																<span class="input-group-btn">
+																	<button class="btn btn-default" type="submit">Buscar</button>
+																</span>
+															</div><!-- /input-group -->
+														</form>
+													</div>
+												</div>
+												<!-- Second -->
+												<div class="side-widget br-green">
+													<h4>Categorias</h4>
+													<div class="widget-content">
+														<ol>
+															{% for cat in category_list %}
+						                                        <li><a href="{% url 'blog:category_list' cat.slug %}">{{ cat.name }}</a></li>
+						                                    {% endfor %}
+														</ol>
+													</div>
+												</div>
+												<!-- Third -->
+												<div class="side-widget br-green">
+													<h4>Marcações</h4>
+													<div class="widget-content">
+														{% for tag in tag_list %}
+					                                        <a href="{% url 'blog:tag_list' tag.slug %}">{{ tag }}</a>
+					                                    {% endfor %}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Inner Page Content // End -->
+
+{% endblock content %}

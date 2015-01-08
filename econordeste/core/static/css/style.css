@@ -2727,6 +2727,7 @@ div.ppt {
 
 .inner-page .blog .blog-content{
 	margin-top: 30px;
+	color: #375731;
 }
 
 .inner-page .blog-post .entry{
@@ -2754,10 +2755,18 @@ div.ppt {
 }
 
 .inner-page .blog-post .entry .meta{
-	padding: 20px 25px;
+	padding: 15px 15px;
 	border-radius: 2px;
 	box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
-	float: left;
+	/*float: left;*/
+}
+
+.inner-page .blog-post .entry .beta{
+	padding: 20px 20px;
+	border-radius: 2px;
+	box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
+	/*float: right;
+	margin-left: 183px;*/
 }
 
 .inner-page .blog-post .entry .meta .post-date{
@@ -2805,7 +2814,7 @@ div.ppt {
 .inner-page .blog-post .entry h4,
 .inner-page .blog-post .entry p{
 	margin: 0px;
-	margin-left: 183px;
+	/*margin-left: 183px;*/
 }
 
 .inner-page .blog-post .entry h4{
@@ -2814,7 +2823,7 @@ div.ppt {
 }
 
 .inner-page .blog-post .entry h4 a{
-	color: #fff;
+	color: #375731;
 }
 
 .inner-page .blog-post .entry p{
@@ -2886,22 +2895,34 @@ div.ppt {
 	padding: 7px 12px;
 }
 
+.inner-page .blog-sidebar .widget-content a{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.inner-page .blog-sidebar .widget-content a:hover{
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
 .inner-page .blog-sidebar .widget-content ol{
 	padding-left: 20px;
 }
 
 .inner-page .blog-sidebar .widget-content ol li a{
 	color: #fff;
+	text-decoration: none;
 }
 
 .inner-page .blog-sidebar .widget-content ol li a:hover{
 	color: #f1f1f1;
+	text-decoration: none;
 }
 
 .inner-page .blog-sidebar .widget-content p{
 	font-size: 13px;
 	line-height: 23px;
-	fontt-weight: 300;
+	font-weight: 300;
 	color: #fff;
 }
 
