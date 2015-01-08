@@ -1,0 +1,25 @@
+<!--begin:pagination-->
+{% if is_paginated %}
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="pagination pagination-centered">
+                <ul>
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% endif %}
+
+                <li>
+                    <a href="{{ page_obj.number.url }}">
+                        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </a>
+                </li>
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<!--end:pagination-->

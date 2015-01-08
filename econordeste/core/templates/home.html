@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_home %} active{% endblock %}
+
+{% block extra_js_top %}
+
+	<script type="text/javascript">
+		//MDN PolyFil for IE8 (This is not needed if you use the jQuery version)
+		if (!Array.prototype.forEach){
+			Array.prototype.forEach = function(fun /*, thisArg */){
+			"use strict";
+			if (this === void 0 || this === null || typeof fun !== "function") throw new TypeError();
+
+			var
+			t = Object(this),
+			len = t.length >>> 0,
+			thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+
+			for (var i = 0; i < len; i++)
+			if (i in t)
+				fun.call(thisArg, t[i], i, t);
+			};
+		}
+	</script>
+
+{% endblock extra_js_top %}
+
+{% block content %}
+
+	<!-- Slider Start -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-sm-8">
+				<!--
+				#################################
+					- THEMEPUNCH BANNER -
+				#################################
+				-->
+				<div class="tp-banner-container">
+					<div id="o-banner" class="tp-banner" >
+						<ul>
+							<!-- SLIDE  -->
+							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+								<!-- MAIN IMAGE -->
+								<img src="{{ STATIC_URL }}img/slider/slide1.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							</li>
+							<!-- SLIDE -->
+							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
+								<!-- MAIN IMAGE -->
+								<img src="{{ STATIC_URL }}img/slider/slide2.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							</li>
+							<!-- SLIDE -->
+							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
+								<!-- MAIN IMAGE -->
+								<img src="{{ STATIC_URL }}img/slider/slide3.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<iframe id="myiframe" src="{% url 'soundcloud' %}?pagina=" scrolling="no" frameborder="no" width="100%"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<!-- Slider End -->
+
+	<!-- Inner Page Content // Start -->
+
+	<div class="inner-page">
+		<div class="container">
+			<div class="page-mainbar column-index">
+				<!-- Masonry Container -->
+				<div id="container" class="grid">
+					<!-- Grid Item -->
+					{% for blog in blog_list %}
+					<div class="item">
+						<!-- Entry for each grid -->
+						<div class="grid-entry br-white animated">
+							<!-- Grid Image Container -->
+							<div class="grid-img">
+								<!-- Image -->
+								{% thumbnail blog.image "600" crop="center" format="PNG" as im %}
+			                        <img src="{{ im.url }}" alt="{{ blog.title }}" title="{{ blog.title }}" class="img-responsive">
+			                    {% empty %}
+			                        <img src="http://placehold.it/300x300/cccccc/FFFFFF" alt="{{ blog.title }}" title="{{ blog.title }}">
+			                    {% endthumbnail %}
+								<!-- Grid Image Hover Effect -->
+								<span class="grid-img-hover"></span>
+								<!-- Grid Image Hover Icon -->
+								<a href="{{ blog.image.url }}" class="grid-img-link">
+									<i class="fa fa-search-plus hover-icon icon-left"></i>
+								</a>
+								<a href="{{ blog.get_absolute_url }}">
+									<i class="fa fa-link hover-icon icon-right"></i>
+								</a>
+							</div>
+							<!-- Grid entry information -->
+							<div class="entry-info">
+								<!-- Heading -->
+								<h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+								<!-- Paragraph -->
+								<!--
+								{% autoescape off %}
+								<p style="color: #375731;">{{ blog.body|truncatewords_html:20 }}</p>
+								{% endautoescape %}
+								 -->
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Inner Page Content // End -->
+
+{% endblock content %}
+
+{% block extra_js_bot %}
+
+	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.themepunch.plugins.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.themepunch.revolution.min.js"></script>
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/iframeResizer.min.js"></script>
+
+	<!-- This Page JavaScript -->
+	<script type="text/javascript" >
+		// Type your codde here
+
+		// SLIDER REVOLUTION Java Script
+			jQuery(document).ready(function() {
+				   jQuery('.tp-banner').revolution(
+					{
+						delay:9000,
+						startheight:400,
+
+						hideThumbs:10,
+
+						navigationType:"none",
+
+
+						hideArrowsOnMobile:"on",
+
+						touchenabled:"on",
+						onHoverStop:"on",
+
+						navOffsetHorizontal:0,
+						navOffsetVertical:20,
+
+						stopAtSlide:-1,
+						stopAfterLoops:-1,
+
+						shadow:0,
+
+						fullWidth:"on",
+						fullScreen:"off"
+					});
+
+					var $iframe = $('#myiframe');
+					var $banner = $('.tp-banner-container').height() + 6 + 'px';
+			        $iframe.attr('src', $iframe.attr("src") + $banner);
+			});
+
+		// Cycle Slide Js
+
+			$('#box-slider-one').cycle({
+				fx:    'uncover',
+				speed:    200,
+				timeout:  2500
+			});
+
+
+		iFrameResize({
+			log                     : true,                  // Enable console logging
+			enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+		});
+	</script>
+
+{% endblock extra_js_bot %}

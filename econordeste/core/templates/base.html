@@ -1,0 +1,261 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<!-- Title here -->
+		<title>{{ enterprise.name }} - {{ enterprise.description }}{% block title %}{% endblock title %}</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Projeto Águas de Garanhuns">
+		<meta name="keywords" content="eco, ecologia, garanhuns, pernambuco, petrobras, nordeste, eco nordeste, aguas, aguas garanhuns, nascente">
+		<meta name="author" content="OW7">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+		<!-- Animate CSS -->
+		<link href="{{ STATIC_URL }}css/animate.min.css" rel="stylesheet">
+		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<link href="{{ STATIC_URL }}css/settings.css" rel="stylesheet">
+		<!--[if IE ]><link rel="stylesheet" href="css/settings-ie8.css"><![endif]-->
+		<!-- Portfolio CSS -->
+		<link href="{{ STATIC_URL }}css/prettyPhoto.css" rel="stylesheet">
+		<!-- Countdown CSS -->
+		<link href="{{ STATIC_URL }}css/jquery.countdown.css" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="{{ STATIC_URL }}css/font-awesome.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
+		<!--[if IE]><link rel="stylesheet" href="css/ie-style.css"><![endif]-->
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="#">
+
+		{% block extra_js_top %}
+
+		{% endblock extra_js_top %}
+	</head>
+
+	<body>
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=309206689218714&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+		<!-- Body Wrapper -->
+		<div class="wrapper white">
+
+			<!-- Header Start -->
+			<div class="header">
+				<!-- Header Information -->
+				<div class="header-info">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<div class="logo-aguas">
+									<a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo_aguas-de-garanhuns.png" class="img-responsive" alt="Águas de Garanhuns" title="Início" /></a>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<!-- Search Box -->
+								<div class="search">
+									<form>
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Buscar notícia">
+											<span class="input-group-btn">
+												<button class="btn" type="button"><i class="fa fa-search"></i></button>
+											</span>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-5 col-sm-5">
+								<div class="col-md-6 col-sm-6">
+									Patrocínio
+									<img src="{{ STATIC_URL }}img/logo_petrobras.png" class="img-responsive" alt="" />
+								</div>
+								<div class="col-md-6 col-sm-6">
+									Executora
+									<img src="{{ STATIC_URL }}img/logo_eco-nordeste.png" class="img-responsive" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Header Navigation -->
+				<div class="header-navigation">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- Bootstrap Navbar -->
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="col-md-4">
+										<div class="logo">
+											<h1><a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo_aguas-de-garanhuns.png" class="img-responsive" alt="" /></a></h1>
+										</div>
+									</div>
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="col-md-8">
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle br-white" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar br-black"></span>
+												<span class="icon-bar br-black"></span>
+												<span class="icon-bar br-black"></span>
+											</button>
+										</div>
+									</div>
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav navbar-right">
+											<li>
+												<a href="#" class="br-white">
+													<span class="link-title{% block nav_project %}{% endblock %}">Projeto</span>
+												</a>
+											</li>
+											<li>
+												<a href="{% url 'blog:home' %}" class="br-white">
+													<span class="link-title{% block nav_blog %}{% endblock %}">Notícias</span>
+												</a>
+											</li>
+											<li>
+												<a href="#" class="br-white">
+													<span class="link-title{% block nav_calendar %}{% endblock %}">Agenda</span>
+												</a>
+											</li>
+											<li>
+												<a href="#" class="br-white">
+													<span class="link-title{% block nav_team %}{% endblock %}">Equipe</span>
+												</a>
+											</li>
+											<li>
+												<a href="#" class="br-white">
+													<span class="link-title{% block nav_games %}{% endblock %}">Jogos</span>
+												</a>
+											</li>
+											<li>
+												<a href="{% url 'contact' %}" class="br-white">
+													<span class="link-title{% block nav_contact %}{% endblock %}">Contato</span>
+												</a>
+											</li>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Header End -->
+
+			{% block content %}
+
+			{% endblock content %}
+
+			<!-- Footer Start -->
+
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-sm-8">
+							<!-- Footer Widget -->
+							<div class="footer-widget">
+								<address>
+									<i class="fa fa-home br-green"></i> {{ enterprise.address }}, {{ enterprise.number }} <br />
+									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.district }}, {{ enterprise.city }}/{{ enterprise.state }}  <br />
+									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.country }} - {{ enterprise.cep }} <br />
+									<span><i class="fa fa-phone br-green"></i> {{ enterprise.phone1 }}</span>
+									<span><i class="fa fa-envelope-o br-green"></i> <a href="{% url 'contact' %}">{{ enterprise.email }}</a></span>
+								</address>
+							</div>
+						</div>
+						<div class="col-md-5 col-sm-8">
+							<iframe width="100%" height="240" src="//www.youtube.com/embed/7A_a4FRz-AM" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<div class="col-md-4 col-sm-8">
+							<!-- Footer Widget -->
+							<div class="footer-widget">
+								<div class="fb-like-box" data-href="https://www.facebook.com/projetoaguasdegaranhuns" class="img-responsive" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Footer Copyright -->
+					<div class="footer-copyright">
+						<div class="col-md-10 col-sm-10">
+							<p>&copy; Copyright 2014-{% now "Y" %} <strong>Eco Nordeste</strong></p>
+						</div>
+						<div class="col-md-2 col-sm-2">
+							<p class="pull-right"><a href="http://ow7.com.br/">OW7</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer End -->
+
+		</div>
+		<!-- Footer End -->
+
+		<!-- Scroll to top -->
+		<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
+
+
+
+
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="{{ STATIC_URL }}js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+		<!-- Cycle JS -->
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cycle.all.js"></script>
+		<!-- jQuery flot -->
+		<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+		<script src="{{ STATIC_URL }}js/jquery.flot.min.js"></script>
+		<script src="{{ STATIC_URL }}js/jquery.flot.resize.min.js"></script>
+		<!-- Count To JS  -->
+		<script src="{{ STATIC_URL }}js/jquery.countTo.js"></script>
+		<!-- Masonry JS -->
+		<script src="{{ STATIC_URL }}js/masonry.pkgd.min.js"></script>
+		<script src="{{ STATIC_URL }}js/imagesloaded.pkgd.min.js"></script>
+		<!-- jQuery way points -->
+		<script src="{{ STATIC_URL }}js/waypoints.min.js"></script>
+		<!-- jQuery prettyPhoto & Isotope -->
+		<script src="{{ STATIC_URL }}js/jquery.prettyPhoto.js"></script>
+		<script src="{{ STATIC_URL }}js/isotope.js"></script>
+		<!-- Jquery for Countdown  -->
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.countdown.min.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="{{ STATIC_URL }}js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="{{ STATIC_URL }}js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="{{ STATIC_URL }}js/custom.js"></script>
+
+		<!-- This Page JavaScript -->
+		<script type="text/javascript" >
+
+			// initialize Masonry
+				var $container = $('#container').masonry();
+			// layout Masonry again after all images have loaded
+				$container.imagesLoaded( function() {
+					$container.masonry();
+				});
+
+		</script>
+
+		{% block extra_js_bot %}
+
+		{% endblock extra_js_bot %}
+
+	</body>
+</html>

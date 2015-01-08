@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_blog %} class="active"{% endblock %}
+
+{% block content %}
+
+    <!-- begin:title -->
+    <div class="row-fluid blog">
+        <div class="span12 main-header">
+            <header>
+                <h1>Notícias</h1>
+            </header>
+        </div>
+    </div>
+    <!-- end:title -->
+
+
+    <!-- begin:content -->
+    <div class="row-fluid">
+        <div class="span12 content-wrapper">
+
+            <!-- begin:elements -->
+            <div class="row-fluid content-home">
+                <!-- begin:blog-article -->
+                <div class="span9">
+
+                    <!-- begin:loop-article -->
+                    <div class="row-fluid">
+                        <div class="span12 blog-content">
+                            <div class="post-thumbnail">
+                                {% thumbnail object.image "678x542" crop="center" format="PNG" as im %}
+                                    <img src="{{ im.url }}" alt="{{ object.title }}" class="img-responsive">
+                                {% empty %}
+                                    <p>Sem Imagem</p>
+                                {% endthumbnail %}
+                            </div>
+                            <div class="page-header">
+                                <h2><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+                            </div>
+                            <small class="meta-date">marcações:
+                                {% for tag in object.tags.all %}
+                                    <a href="{% url 'blog:tag_list' tag.slug %}"><span class="label label-red">{{ tag.name }}</span></a>
+                                {% endfor %}
+                                | Por {{ object.author }}
+                                | {{ object.created|date:"d F Y" }}
+                            </small>
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    {% autoescape off %}
+                                    <p>{{ object.body|linebreaks|cut:"../../../.." }}</p>
+                                    {% endautoescape %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="dotted">
+                    <!-- end:loop-article -->
+
+                </div>
+                <!-- end:blog-article -->
+
+                <!-- begin:blog-sidebar -->
+                <div class="span3">
+                    <div class="row-fluid blog-sidebar">
+                        <div class="span12">
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h3>Categorias</h3>
+                                </div>
+                                <ul>
+                                    {% for cat in category_list %}
+                                        <li><a href="{% url 'blog:category_list' cat.slug %}">{{ cat.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- break -->
+                            <div class="widget widget-tags">
+                                <div class="widget-title">
+                                    <h3>Tags</h3>
+                                </div>
+                                <ul>
+                                    {% for tag in tag_list %}
+                                        <li><a href="{% url 'blog:tag_list' tag.slug %}">{{ tag }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- break -->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end:blog-sidebar -->
+
+            </div>
+            <!-- end:elements -->
+
+        </div>
+    </div>
+    <!-- end:content -->
+
+{% endblock content %}
