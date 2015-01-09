@@ -49,7 +49,7 @@ STATE_CHOICES = (
 
 BANNER_CHOICES = (
     (1, _(u'Super Banner (Home)')),
-    (2, _(u'Banner Secundário (Home)')),
+    # (2, _(u'Banner Secundário (Home)')),
     (3, _(u'Popup Banner')),
 )
 

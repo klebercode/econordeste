@@ -42,21 +42,15 @@
 				<div class="tp-banner-container">
 					<div id="o-banner" class="tp-banner" >
 						<ul>
-							<!-- SLIDE  -->
-							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-								<!-- MAIN IMAGE -->
-								<img src="{{ STATIC_URL }}img/slider/slide1.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-							</li>
-							<!-- SLIDE -->
-							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
-								<!-- MAIN IMAGE -->
-								<img src="{{ STATIC_URL }}img/slider/slide2.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-							</li>
-							<!-- SLIDE -->
-							<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
-								<!-- MAIN IMAGE -->
-								<img src="{{ STATIC_URL }}img/slider/slide3.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-							</li>
+		                {% for ban in super_banner_list %}
+		                	<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" {% if ban.link %}data-link="{{ ban.link }}"{% endif %} >
+				                {% thumbnail ban.image "1280x500" crop="center" format="PNG" as im %}
+				                    <img src="{{ im.url }}" alt="{{ ban.title }}" title="{{ ban.title }}" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				                {% empty %}
+				                    <img src="http://placehold.it/1280x500/cccccc/FFFFFF" alt="{{ ban.title }}" title="{{ ban.title }}" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				                {% endthumbnail %}
+			                </li>
+			            {% endfor %}
 						</ul>
 					</div>
 				</div>
@@ -121,6 +115,29 @@
 
 	<!-- Inner Page Content // End -->
 
+	<!-- start:popup_banner -->
+    {% if popup_banner_list %}
+        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+          	<div class="modal-content">
+	          <div class="modal-body">
+	            {% for ban in popup_banner_list %}
+	              {% thumbnail ban.image "800" crop="center" format="PNG" as im %}
+	                <img src="{{ im.url }}" alt="{{ ban.title }}" title="{{ ban.title }}" class="img-responsive">
+	              {% empty %}
+	                <img src="http://placehold.it/800x600/cccccc/FFFFFF" alt="{{ ban.title }}" title="{{ ban.title }}" class="img-responsive">
+	              {% endthumbnail %}
+	            {% endfor %}
+	          </div>
+	          <div class="modal-footer">
+	            <a class="btn btn-red" data-dismiss="modal">Fechar</a>
+	          </div>
+	        </div>
+	      </div>
+        </div>
+    {% endif %}
+    <!-- end:popup_banner -->
+
 {% endblock content %}
 
 {% block extra_js_bot %}
@@ -167,6 +184,8 @@
 					var $iframe = $('#myiframe');
 					var $banner = $('.tp-banner-container').height() + 6 + 'px';
 			        $iframe.attr('src', $iframe.attr("src") + $banner);
+
+			        $('#myModal').modal('show');
 			});
 
 		// Cycle Slide Js
@@ -176,6 +195,11 @@
 				speed:    200,
 				timeout:  2500
 			});
+
+
+/*			$(window).load(function(){
+	            $('#myModal').modal('show');
+	        });*/
 
 
 		iFrameResize({
