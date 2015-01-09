@@ -1,0 +1,31 @@
+{% extends "event/calendar_base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_event %} active{% endblock %}
+
+{% block post %}
+
+	<!-- The new post done by user's all in the post block -->
+    <div class="blog-post">
+        <!-- Entry is the one post for each user -->
+        <div class="entry">
+            <!-- Meta for this block -->
+            <div class="meta br-green white col-md-3 col-sm-3">
+                <!-- Date -->
+                <div class="post-date">{{ calendar.date_start|date:"l d, F, Y" }}</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="beta br-white col-md-9 col-sm-9 pull-right">
+                <!-- Heading of the  post -->
+                <h4>{{ calendar.title }}</h4>
+                <!-- Para -->
+                {% autoescape off %}
+                <p>{{ calendar.body|linebreaks|cut:"../../../.." }}</p>
+                {% endautoescape %}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+{% endblock post %}

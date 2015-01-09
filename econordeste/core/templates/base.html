@@ -16,7 +16,6 @@
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
 		<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
-		<link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
 		<!-- Animate CSS -->
 		<link href="{{ STATIC_URL }}css/animate.min.css" rel="stylesheet">
 		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
@@ -129,8 +128,8 @@
 												</a>
 											</li>
 											<li>
-												<a href="#" class="br-white">
-													<span class="link-title{% block nav_calendar %}{% endblock %}">Agenda</span>
+												<a href="{% url 'event:home' %}" class="br-white">
+													<span class="link-title{% block nav_event %}{% endblock %}">Agenda</span>
 												</a>
 											</li>
 											<li>

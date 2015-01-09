@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_event %} active{% endblock %}
+
+{% block content %}
+
+			<!-- Inner Page Content // Start -->
+
+			<div class="inner-page">
+				<div class="container">
+					<div class="row">
+						<!-- Main-bar Column -->
+						<div class="col-md-12">
+							<div class="page-mainbar blog">
+								<!-- Heading -->
+								<div class="col-md-3 col-sm-3 pull-right">
+									<form role="form" action="." method="get" class="form-inline bform">
+										<!-- /input-group -->
+										<div class="input-group">
+											<input id="search" name="search" type="text" class="form-control" placeholder="Buscar Evento">
+											<span class="input-group-btn">
+												<button class="btn btn-default" type="submit">Buscar</button>
+											</span>
+										</div><!-- /input-group -->
+									</form><br>
+								</div>
+								<h3>Agenda <small class="white">{% if search %}busca por "{{ search }}"{% endif %}</small></h3>
+								<!-- Blog Page Content -->
+								<div class="blog-content">
+									<div class="row">
+										<div class="col-md-12 col-sm-12">
+
+											{% block post %}
+
+											{% endblock post %}
+
+											<div class="clearfix"></div>
+											<!-- Blog post End -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Inner Page Content // End -->
+
+{% endblock content %}

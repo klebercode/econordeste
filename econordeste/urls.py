@@ -18,6 +18,7 @@ urlpatterns = patterns(
         name='soundcloud'),
 
     url(r'^noticias/', include('econordeste.blog.urls', namespace='blog')),
+    url(r'^agenda/', include('econordeste.event.urls', namespace='event')),
 
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),

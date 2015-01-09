@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block nav_event %} class="active"{% endblock %}
+
+{% block content %}
+
+    <!-- begin:title -->
+    <div class="row-fluid event">
+        <div class="span12 main-header">
+            <header>
+                <h1>Agenda de Eventos</h1>
+            </header>
+            <ul class="breadcrumb">
+                <li>{% if search %}busca por "{{ search }}"{% endif %}</li>
+            </ul>
+        </div>
+    </div>
+    <!-- end:title -->
+
+
+    <!-- begin:content -->
+    <div class="row-fluid">
+        <div class="span12 content-wrapper">
+
+            <!-- begin:logo-search -->
+            <div class="search-form internal">
+                <form role="form" action="." method="get">
+                    <div class="input-append">
+                        <input class="span10" id="search" type="text" name="search" placeholder="Buscar">
+                        <button class="btn btn-red" type="submit">
+                            <i class="icon-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- end:logo-search -->
+
+            {% regroup object_list by date_start|date:"F, Y" as calendar_year_month %}
+
+            {% for year_month in calendar_year_month %}
+
+            <!-- begin:list-event -->
+            <div class="row-fluid content-home">
+                <div class="span12">
+                    <div class="page-header">
+                        <h2>{{ year_month.grouper }}</h2>
+                    </div>
+
+                    {% for item in year_month.list %}
+
+                    <ul class="calendario">
+                        <li>
+                            <table width="96%">
+                                <tbody>
+                                    <tr>
+                                        <td width="90">
+                                            <div class="data">
+                                                <span class="numero">{{ item.date_start|date:"d" }}</span>
+                                                {{ item.date_start|date:"D" }}
+                                            </div>
+                                        </td>
+                                        <td valign="middle">
+                                            <ul class="listagem">
+                                                <li>
+                                                    <a href="{{ item.get_absolute_url }}"><strong>{{ item.title }}</strong></a>
+                                                    {% autoescape off %}
+                                                    <br>{{ item.body|striptags|truncatewords_html:25 }}
+                                                    {% endautoescape %}
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            <!-- end:list-event -->
+
+            {% empty %}
+
+                <p>Nenhum evento encontrado.</p>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- end:content -->
+
+    {% include "paginator.html" %}
+
+{% endblock content %}
