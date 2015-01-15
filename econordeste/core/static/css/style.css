@@ -7,7 +7,7 @@ Designed by : http://responsivewebinc.com
 /* Basic CSS starts */
 
 body{
-	background: url(../img/bg_01.jpg) no-repeat center center fixed;
+	background: #24a7d2 url(../img/bg_07.jpg) no-repeat top center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -79,7 +79,7 @@ p{
 }
 
 a{
-	color: #375731;
+	color: #444;
 }
 
 a:hover{
@@ -123,7 +123,8 @@ hr{
 }
 
 .green{
-	color:#6fae26 !important;
+	/* color:#6fae26 !important; */
+	color:#375731 !important;
 }
 
 .lblue{
@@ -163,7 +164,12 @@ hr{
 
 .br-black{
 	/* background: #444 !important; */
-	background: rgba(0,0,0,0.6) !important;
+	background: rgba(0,0,0,0.4) !important;
+}
+
+.br-lblack{
+	/* background: #444 !important; */
+	background: rgba(0,0,0,0.3) !important;
 }
 
 .br-red{
@@ -173,7 +179,8 @@ hr{
 
 .br-green{
 	/* background:#6fae26 !important; */
-	background: rgba(111,174,38,0.6) !important;
+	/* background: rgba(111,174,38,0.6) !important; */
+	background: rgba(55, 87, 49, 0.2) !important;
 }
 
 .br-lblue{
@@ -353,7 +360,7 @@ strong{
 	/* margin-bottom: 40px; */
 	background: rgba(255,255,255,1);
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-	color: #375731;
+	color: #444;
 	font-size: 11px;
 	/* height: 160px; */
 	position: relative;
@@ -503,7 +510,7 @@ strong{
 	height: 40px;
 	margin-left: 7px;
 	margin-bottom: 7px;
-	color: #375731;
+	color: #444;
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
 	-webkit-transition: all 0.35s ease-in;
@@ -709,7 +716,6 @@ strong{
 	width:100%;
 	position:relative;
 	padding:0;
-	background: #343434;
 	border: 4px solid rgba(255,255,255,0.8);
 	border-radius: 2px;
 }
@@ -1455,7 +1461,8 @@ a.btn-default i{
 }
 
 .inner-page .page-mainbar{
-	padding-left: 20px;
+	/* padding-left: 20px; */
+	/* background: rgba(0,0,0,0.2); */
 }
 
 .inner-page .page-mainbar.column-index{
@@ -1465,10 +1472,12 @@ a.btn-default i{
 
 .inner-page .page-mainbar h3{
 	margin: 0px;
-	margin-bottom: 10px;
-	padding-bottom: 8px;
-	font-size: 25px;
-	border-bottom: 1px solid #fff;
+	padding: 8px;
+	font-size: 40px;
+	font-weight: 300;
+	color: #444;
+	border-radius: 2px;
+	text-shadow: 1px 1px 5px #fff;
 }
 
 .inner-page  .sidebar-link{
@@ -2726,8 +2735,8 @@ div.ppt {
 /* Inner Page Blog and Single Blog */
 
 .inner-page .blog .blog-content{
-	margin-top: 30px;
-	color: #375731;
+	padding-top: 30px;
+	/* background: rgba(0,0,0,0.2); */
 }
 
 .inner-page .blog-post .entry{
@@ -2757,14 +2766,14 @@ div.ppt {
 .inner-page .blog-post .entry .meta{
 	padding: 15px 15px;
 	border-radius: 2px;
-	box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
+	/* box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1); */
 	/*float: left;*/
 }
 
 .inner-page .blog-post .entry .beta{
 	padding: 20px 20px;
 	border-radius: 2px;
-	box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
+	/* box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1); */
 	/*float: right;
 	margin-left: 183px;*/
 }
@@ -2787,11 +2796,11 @@ div.ppt {
 }
 
 .inner-page .blog-post .entry .meta .meta-info a{
-	color: #fff;
+	color: #444;
 }
 
 .inner-page .blog-post .entry .meta .meta-info a:hover{
-	color: #f1f1f1;
+	color: #39CF9F;
 }
 
 .inner-page .blog-post .entry .meta .meta-info i{
@@ -2803,7 +2812,7 @@ div.ppt {
 	text-align: center;
 	font-size: 12px;
 	border-radius: 30px;
-	border: 1px solid #fff;
+	/* border: 1px solid #fff; */
 }
 
 .inner-page .blog-post .entry .meta .meta-info span{
@@ -2823,7 +2832,11 @@ div.ppt {
 }
 
 .inner-page .blog-post .entry h4 a{
-	color: #375731;
+	color: #444;
+}
+
+.inner-page .blog-post .entry h4 a:hover{
+	color: #39CF9F;
 }
 
 .inner-page .blog-post .entry p{
@@ -2880,7 +2893,7 @@ div.ppt {
 	margin: 0;
 	padding: 15px;
 	padding-bottom: 11px;
-	color: #fff;
+	color: #444;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -2896,12 +2909,11 @@ div.ppt {
 }
 
 .inner-page .blog-sidebar .widget-content a{
-	color: #fff;
-	text-decoration: underline;
+	color: #444;
 }
 
 .inner-page .blog-sidebar .widget-content a:hover{
-	color: #f1f1f1;
+	color: #39CF9F;
 	text-decoration: none;
 }
 
@@ -2910,12 +2922,12 @@ div.ppt {
 }
 
 .inner-page .blog-sidebar .widget-content ol li a{
-	color: #fff;
+	color: #444;
 	text-decoration: none;
 }
 
 .inner-page .blog-sidebar .widget-content ol li a:hover{
-	color: #f1f1f1;
+	color: #39CF9F;
 	text-decoration: none;
 }
 
@@ -3498,7 +3510,7 @@ div.ppt {
 	margin: 0px;
 	margin-bottom: 5px;
 	font-size: 20px;
-	color: #375731;
+	color: #444;
 }
 
 .grid  .grid-entry .entry-info p{
@@ -3549,7 +3561,6 @@ div.ppt {
 	padding-top: 40px;
 	padding-bottom: 40px;
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-	color: #375731;
 }
 
 .footer.padd-zero{
@@ -3609,7 +3620,7 @@ div.ppt {
 .footer .footer-widget ul a{
 	display: block;
 	padding-bottom: 6px;
-	color: #375731;
+	color: #444;
 	font-size: 13px;
 	line-height: 20px;
 }
@@ -3655,8 +3666,7 @@ div.ppt {
 .footer .footer-widget address a,
 .footer .footer-copyright p a{
 	display: inline-block;
-	color: #375731;
-	border-bottom: 1px dashed #375731;
+	color: #444;
 }
 
 .footer .footer-widget address a:hover,
@@ -3761,7 +3771,7 @@ div.ppt {
 	line-height: 30px;
 	text-align: center;
 	font-size: 20px;
-	background: #375731;
+	background: #39CF9F;
 	border-radius: 2px;
 }
 

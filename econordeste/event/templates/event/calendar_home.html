@@ -13,27 +13,31 @@
 			<!-- Entry is the one post for each user -->
 			<div class="entry">
 				<!-- Meta for this block -->
-				<div class="meta br-green white col-md-3 col-sm-3 pull-right">
+				<div class="meta br-white col-md-3 col-sm-3 pull-right">
 					<!-- Date -->
 					<div class="post-date">{{ year_month.grouper }}</div>
 					<div class="clearfix"></div>
 				</div>
 				{% for item in year_month.list %}
 				<div class="col-md-9 col-sm-9" style="margin-bottom: 5px;">
-					<div class="meta br-green white col-md-3 col-sm-3">
-						<!-- Date -->
-						<div class="post-date"><span>{{ item.date_start|date:"d" }}</span>{{ item.date_start|date:"D" }}</div>
-						<!-- Post Information -->
-						<div class="clearfix"></div>
+					<div class="col-md-3 col-sm-3">
+						<div class="meta br-white">
+							<!-- Date -->
+							<div class="post-date"><span>{{ item.date_start|date:"d" }}</span>{{ item.date_start|date:"D" }}</div>
+							<!-- Post Information -->
+							<div class="clearfix"></div>
+						</div>
 					</div>
-					<div class="beta br-white col-md-9 col-sm-9 pull-right">
-						<!-- Heading of the  post -->
-						<h4><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4>
-						<!-- Para -->
-						{% autoescape off %}
-	                    <p>{{ item.body|striptags|truncatewords_html:25 }}</p>
-	                    {% endautoescape %}
-	                </div>
+					<div class="col-md-9 col-sm-9">
+						<div class="beta br-white">
+							<!-- Heading of the  post -->
+							<h4><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4>
+							<!-- Para -->
+							{% autoescape off %}
+		                    <p>{{ item.body|striptags|truncatewords_html:25 }}</p>
+		                    {% endautoescape %}
+		                </div>
+		            </div>
 				</div>
 				{% endfor %}
 				<div class="clearfix"></div>

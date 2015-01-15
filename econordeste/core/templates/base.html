@@ -51,7 +51,7 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 
 		<!-- Body Wrapper -->
-		<div class="wrapper white">
+		<div class="wrapper">
 
 			<!-- Header Start -->
 			<div class="header">
@@ -143,7 +143,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="#" class="br-white">
+												<a href="{% url 'contact' %}" class="br-white">
 													<span class="link-title{% block nav_contact %}{% endblock %}">Contato</span>
 												</a>
 											</li>
@@ -170,11 +170,11 @@
 							<!-- Footer Widget -->
 							<div class="footer-widget">
 								<address>
-									<i class="fa fa-home br-green"></i> {{ enterprise.address }}, {{ enterprise.number }} <br />
+									<i class="fa fa-home br-black"></i> {{ enterprise.address }}, {{ enterprise.number }} <br />
 									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.district }}, {{ enterprise.city }}/{{ enterprise.state }}  <br />
 									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.country }} - {{ enterprise.cep }} <br />
-									<span><i class="fa fa-phone br-green"></i> {{ enterprise.phone1 }}</span>
-									<span><i class="fa fa-envelope-o br-green"></i> <a href="{% url 'contact' %}">{{ enterprise.email }}</a></span>
+									<span><i class="fa fa-phone br-black"></i> {{ enterprise.phone1 }}</span>
+									<span><i class="fa fa-envelope-o br-black"></i> <a href="{% url 'contact' %}">{{ enterprise.email }}</a></span>
 								</address>
 							</div>
 						</div>

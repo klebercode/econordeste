@@ -12,25 +12,33 @@
 			<!-- Entry is the one post for each user -->
 			<div class="entry">
 				<!-- Meta for this block -->
-				<div class="meta br-green white col-md-3 col-sm-3">
-					<!-- Date -->
-					<div class="post-date"><span>{{ object.created|date:"d M" }}</span>{{ object.created|date:"Y" }}</div>
-					<!-- Post Information -->
-					<div class="meta-info"><i class="fa fa-user"></i> <span>{{ object.author }}</span></div>
-					<div class="meta-info"><i class="fa fa-tag"></i>
-						{% for tag in object.tags.all %}
-					        <a href="{% url 'blog:tag_list' tag.slug %}"><span>{{ tag.name }}</span></a>
-                        {% endfor %}
+				<div class="col-md-3 col-sm-3">
+					<div class="meta br-white">
+						<!-- Date -->
+						<div class="post-date"><span>{{ object.created|date:"d M" }}</span>{{ object.created|date:"Y" }}</div>
+						<!-- Post Information -->
+						<div class="meta-info"><i class="fa fa-user"></i> <span>{{ object.author }}</span></div>
+						<div class="meta-info"><i class="fa fa-tag"></i>
+							{% for tag in object.tags.all %}
+						        <a href="{% url 'blog:tag_list' tag.slug %}"><span>{{ tag.name }}</span></a>
+	                        {% endfor %}
+						</div>
 					</div>
-					<div class="clearfix"></div>
 				</div>
-				<div class="beta br-white col-md-9 col-sm-9 pull-right">
-					<!-- Heading of the  post -->
-					<h4><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
-					<!-- Para -->
-					{% autoescape off %}
-                    <p>{{ object.body|striptags|truncatewords_html:75 }}</p>
-                    {% endautoescape %}
+				<div class="col-md-9 col-sm-9">
+					<div class="beta br-white pull-right">
+						<!-- Heading of the  post -->
+						<h4><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
+						{% thumbnail object.image "800" crop="center" format="PNG" as im %}
+                            <p><img src="{{ im.url }}" alt="{{ object.title }}" title="{{ object.title }}" class="img-responsive" /></p>
+                        {% empty %}
+                            <p>Sem Imagem</p>
+                        {% endthumbnail %}
+						<!-- Para -->
+						{% autoescape off %}
+	                    <p>{{ object.body|striptags|truncatewords_html:75 }}</p>
+	                    {% endautoescape %}
+					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
