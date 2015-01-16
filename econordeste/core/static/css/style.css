@@ -2863,15 +2863,14 @@ div.ppt {
 	text-decoration:none;
 	width:auto;
 	color:#565656;
-	background: rgba(255,255,255,0.6);
-	border:1px solid #292929;
+	background: rgba(255,255,255,0.8);
 	border-radius: 2px;
 	font-weight: 300;
 }
 
 .paging a:hover{
 	color: #fff;
-	background: rgba(111,174,38,0.6);
+	background: rgba(57, 207, 159, 0.8);
 }
 
 .paging .current{

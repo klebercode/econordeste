@@ -38,7 +38,7 @@ class EntryListView(EnterpriseExtraContext,  generic.ListView):
     queryset = Entry.published.all()
     template_name = 'blog/entry_home.html'
     # TODO: mudar a paginacao
-    paginate_by = 10
+    paginate_by = 6
 
     def get_queryset(self, **kwargs):
         search = self.request.GET.get('search', '')
