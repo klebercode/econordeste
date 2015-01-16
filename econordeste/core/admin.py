@@ -1,8 +1,10 @@
 # coding: utf-8
 from django.contrib import admin
 
+from mce_filebrowser.admin import MCEFilebrowserAdmin
+
 from econordeste.core.models import (Enterprise, Social, Category, Banner,
-                                     Team)
+                                     Team, Project)
 from econordeste.core.forms import TeamForm
 
 
@@ -31,8 +33,14 @@ class TeamAdmin(admin.ModelAdmin):
     form = TeamForm
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    search_fields = ('title', 'body')
+
+
 admin.site.register(Enterprise, EnterpriseAdmin)
 admin.site.register(Social)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(Project, ProjectAdmin)

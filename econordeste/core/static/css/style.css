@@ -1807,6 +1807,11 @@ a.btn-default i{
 
 /* Inner Page Features */
 
+.inner-page .feature-content{
+	padding-top: 30px;
+	padding-left: 10px;
+}
+
 .inner-page .feature-content p{
 	font-size: 13px;
 	line-height: 23px;
@@ -2369,12 +2374,12 @@ div.ppt {
 }
 
 .inner-page .testimonial-content .testimonial-item{
-	max-width: 430px;
+	/* max-width: 430px; */
 	margin: 0px auto;
 	margin-top: 40px;
 	padding: 20px;
 	border-radius: 6px;
-	box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
+	/* box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1); */
 }
 
 .inner-page .testimonial-content .testimonial-item{

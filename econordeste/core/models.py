@@ -258,3 +258,16 @@ class Team(models.Model):
         verbose_name = _(u'Equipe')
         verbose_name_plural = _(u'Equipe')
         ordering = ['name']
+
+
+class Project(models.Model):
+    title = models.CharField(_(u'Título'), max_length=200)
+    body = tinymce_models.HTMLField(_(u'Conteúdo'))
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _(u'Projeto')
+        verbose_name_plural = _(u'Projeto')
+        ordering = ['title']

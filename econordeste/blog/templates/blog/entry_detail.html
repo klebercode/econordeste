@@ -36,7 +36,7 @@
                     {% endthumbnail %}
     				<!-- Para -->
     				{% autoescape off %}
-                    <p>{{ object.body|striptags|linebreaks|cut:"../../../.." }}</p>
+                    <p>{{ object.body|linebreaks|cut:"../../../.." }}</p>
                     {% endautoescape %}
     			</div>
             </div>

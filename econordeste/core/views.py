@@ -6,7 +6,7 @@ from django.template import RequestContext
 
 from econordeste.context_processors import enterprise_proc
 
-from econordeste.core.models import Banner, Team
+from econordeste.core.models import Banner, Team, Project
 from econordeste.blog.models import Entry
 
 from econordeste.core.forms import ContactForm
@@ -61,6 +61,16 @@ def team(request):
     context['team_list'] = Team.objects.all()
 
     return render(request, 'team.html', context,
+                  context_instance=RequestContext(request,
+                                                  processors=[enterprise_proc]
+                                                  ))
+
+
+def project(request):
+    context = {}
+    context['project_list'] = Project.objects.all()
+
+    return render(request, 'project.html', context,
                   context_instance=RequestContext(request,
                                                   processors=[enterprise_proc]
                                                   ))

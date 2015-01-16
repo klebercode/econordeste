@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_project %} active{% endblock %}
+
+{% block content %}
+
+    <!-- Inner Page Content // Start -->
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+                <!-- Main-bar Column -->
+                <div class="col-md-12">
+                    <div class="page-mainbar testimonial">
+                        <!-- Heading -->
+                        <h3>O Projeto</h3>
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-content">
+                            <div class="row">
+                                {% for project in project_list %}
+                                <div class="col-md-12 col-sm-12">
+                                    <!-- Client post -->
+                                    <div class="testimonial-item br-white animated">
+                                        <!-- Image -->
+                                        <!-- Heading -->
+                                        <h4>{{ project.title }}</h4>
+                                        {% autoescape off %}
+                                        <p>{{ project.body|linebreaks|cut:"../../../.." }}</p>
+                                        {% endautoescape %}
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <p>Aguardando conteúdo...</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inner Page Content // End -->
+
+{% endblock content %}
