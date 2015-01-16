@@ -1607,6 +1607,8 @@ a.btn-default i{
 	margin-top: 50px;
 	margin-bottom: 30px;
 	text-align: center;
+	padding: 10px;
+	border-radius: 2px;
 }
 
 .inner-page .aboutus .aboutus-member .member-content img{
@@ -1638,7 +1640,7 @@ a.btn-default i{
 
 .inner-page .aboutus .aboutus-member .member-content hr{
 	width: 20%;
-	border-top: 3px solid #ed450c;
+	border-top: 3px solid #39CF9F;
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
@@ -1648,7 +1650,7 @@ a.btn-default i{
 
 .inner-page .aboutus .aboutus-member .member-content:hover hr{
 	width: 55%;
-	border-top: 3px solid #ed450c;
+	border-top: 3px solid #39CF9F;
 }
 
 .inner-page .aboutus .aboutus-skill{

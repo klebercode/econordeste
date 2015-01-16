@@ -3,6 +3,8 @@ from django import forms
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 
+from econordeste.core.models import Team
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label=u'Nome',
@@ -33,3 +35,12 @@ class ContactForm(forms.Form):
 
         msg.attach_alternative(message_html, 'text/html')
         msg.send()
+
+
+class TeamForm(forms.ModelForm):
+    description = forms.CharField(widget=forms.Textarea(
+                                  attrs={'cols': 60, 'rows': 6,
+                                         'maxlength': 200}))
+
+    class Meta:
+        model = Team

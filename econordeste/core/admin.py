@@ -1,7 +1,9 @@
 # coding: utf-8
 from django.contrib import admin
 
-from econordeste.core.models import (Enterprise, Social, Category, Banner)
+from econordeste.core.models import (Enterprise, Social, Category, Banner,
+                                     Team)
+from econordeste.core.forms import TeamForm
 
 
 class EnterpriseAdmin(admin.ModelAdmin):
@@ -23,7 +25,14 @@ class BannerAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
 
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description', 'admin_image']
+    search_fields = ['name', 'description']
+    form = TeamForm
+
+
 admin.site.register(Enterprise, EnterpriseAdmin)
 admin.site.register(Social)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Banner, BannerAdmin)
+admin.site.register(Team, TeamAdmin)

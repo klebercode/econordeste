@@ -198,3 +198,63 @@ class Banner(models.Model):
     class Meta:
         verbose_name = _(u'Banner')
         verbose_name_plural = _(u'Banners')
+
+
+class Team(models.Model):
+    def get_file_path(instance, filename):
+        ext = filename.split('.')[-1]
+        filename = "%s.%s" % (uuid.uuid4(), ext)
+        return os.path.join('team', filename)
+
+    name = models.CharField(_(u'Nome'), max_length=30)
+    description = models.CharField(_(u'Descrição'), max_length=200)
+    image = models.ImageField(_(u'Foto'), upload_to=get_file_path,
+                              blank=True, null=True)
+
+    def admin_image(self):
+        if self.image.url:
+            return '<img src="%s" width="60" />' % self.image.url
+        else:
+            return 'Sem imagem.'
+    admin_image.allow_tags = True
+    admin_image.short_description = 'Foto'
+
+    def save(self, *args, **kwargs):
+        if not self.id and not self.image:
+            return
+
+        super(Team, self).save(*args, **kwargs)
+
+        image = Image.open(self.image)
+
+        def scale_dimensions(width, height, longest_side):
+            if width > height:
+                if width > longest_side:
+                    ratio = longest_side*1./width
+                    return (int(width*ratio), int(height*ratio))
+                elif height > longest_side:
+                    ratio = longest_side*1./height
+                    return (int(width*ratio), int(height*ratio))
+            return (width, height)
+
+        side = 400
+
+        (width, height) = image.size
+        (width, height) = scale_dimensions(width, height, longest_side=side)
+
+        size = (width, height)
+        """ redimensiona esticando """
+        # image = image.resize(size, Image.ANTIALIAS)
+        """ redimensiona proporcionalmente """
+        # image.thumbnail(size, Image.ANTIALIAS)
+        """ redimensiona cortando para encaixar no tamanho """
+        image = ImageOps.fit(image, size, Image.ANTIALIAS)
+        image.save(self.image.path, 'JPEG', quality=99)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _(u'Equipe')
+        verbose_name_plural = _(u'Equipe')
+        ordering = ['name']

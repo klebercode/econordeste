@@ -6,7 +6,7 @@ from django.template import RequestContext
 
 from econordeste.context_processors import enterprise_proc
 
-from econordeste.core.models import Banner
+from econordeste.core.models import Banner, Team
 from econordeste.blog.models import Entry
 
 from econordeste.core.forms import ContactForm
@@ -54,3 +54,13 @@ def soundcloud(request):
 
     return render(request, 'soundcloud.html', context)
     # return redirect('http://saloa.pe.gov.br/transparencia/')
+
+
+def team(request):
+    context = {}
+    context['team_list'] = Team.objects.all()
+
+    return render(request, 'team.html', context,
+                  context_instance=RequestContext(request,
+                                                  processors=[enterprise_proc]
+                                                  ))

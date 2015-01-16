@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block nav_team %} active{% endblock %}
+
+{% block content %}
+
+    <!-- Inner Page Content // Start -->
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+                <!-- Main-bar Column -->
+                <div class="col-md-12">
+                    <div class="page-mainbar aboutus">
+                        <!-- About Us Member -->
+                        <div class="aboutus-member">
+                            <!-- Heading -->
+                            <h3>Equipe</h3>
+                            <div class="row">
+                                {% for team in team_list %}
+                                <div class="col-md-4 col-sm-4">
+                                    <!-- Member Content -->
+                                    <div class="member-content br-white">
+                                        <!-- Image -->
+                                        {% thumbnail team.image "400x400" crop="center" format="PNG" as im %}
+                                            <img src="{{ im.url }}" class="img-responsive img-circle" alt="{{ team.name }}" title="{{ team.name }}" />
+                                        {% empty %}
+                                            <img src="http://placehold.it/400x400/cccccc/FFFFFF" class="img-responsive img-circle" alt="{{ ban.title }}" title="{{ ban.title }}" />
+                                        {% endthumbnail %}
+                                        <!-- Heading -->
+                                        <h4>{{ team.name }}</h4>
+                                        <hr />
+                                        <p>{{ team.description }}</p>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <p>Aguardando conteúdo...</p>
+                                {% endfor %}
+                                <div class="col-md-4 col-sm-4">
+                                    <!-- Member Content -->
+                                    <div class="member-content br-white">
+                                        <!-- Image -->
+                                        <img src="img/user.jpg" class="img-responsive img-circle" alt="" />
+                                        <!-- Heading -->
+                                        <h4>Nome</h4>
+                                        <hr />
+                                        <p>teste</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <!-- Member Content -->
+                                    <div class="member-content br-white">
+                                        <!-- Image -->
+                                        <img src="img/user.jpg" class="img-responsive img-circle" alt="" />
+                                        <!-- Heading -->
+                                        <h4>Nome</h4>
+                                        <hr />
+                                        <p>teste</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inner Page Content // End -->
+
+{% endblock content %}

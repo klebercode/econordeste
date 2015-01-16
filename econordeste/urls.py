@@ -16,6 +16,7 @@ urlpatterns = patterns(
     url(r'^contato/', 'econordeste.core.views.contact', name='contact'),
     url(r'^soundcloud/', 'econordeste.core.views.soundcloud',
         name='soundcloud'),
+    url(r'^equipe/', 'econordeste.core.views.team', name='team'),
 
     url(r'^noticias/', include('econordeste.blog.urls', namespace='blog')),
     url(r'^agenda/', include('econordeste.event.urls', namespace='event')),
