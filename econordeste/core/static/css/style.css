@@ -193,6 +193,11 @@ hr{
 	background: rgba(20,185,232,0.6) !important;
 }
 
+.br-hblue{
+	/* background:#14b9e8 !important; */
+	background: rgba(20,185,232,0.8) !important;
+}
+
 .br-blue{
 	/* background:#0275d7 !important; */
 	background: rgba(2,117,215,0.6) !important;
