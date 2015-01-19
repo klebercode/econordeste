@@ -167,6 +167,11 @@ hr{
 	background: rgba(0,0,0,0.4) !important;
 }
 
+.br-hblack{
+	/* background: #444 !important; */
+	background: rgba(0,0,0,0.9) !important;
+}
+
 .br-lblack{
 	/* background: #444 !important; */
 	background: rgba(0,0,0,0.3) !important;
