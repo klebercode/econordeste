@@ -4,7 +4,7 @@ from django.contrib import admin
 from mce_filebrowser.admin import MCEFilebrowserAdmin
 
 from econordeste.core.models import (Enterprise, Social, Category, Banner,
-                                     Team, Project)
+                                     Team, Project, Games)
 from econordeste.core.forms import TeamForm
 
 
@@ -38,9 +38,15 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ('title', 'body')
 
 
+class GamesAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    search_fields = ('title', 'body')
+
+
 admin.site.register(Enterprise, EnterpriseAdmin)
 admin.site.register(Social)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Games, GamesAdmin)

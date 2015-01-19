@@ -2,7 +2,7 @@
 
 {% load thumbnail %}
 
-{% block nav_project %} active{% endblock %}
+{% block nav_games %} active{% endblock %}
 
 {% block content %}
 
@@ -15,19 +15,19 @@
                 <div class="col-md-12">
                     <div class="page-mainbar testimonial">
                         <!-- Heading -->
-                        <h3>O Projeto</h3>
+                        <h3>Jogos</h3>
                         <!-- Testimonial Content -->
                         <div class="testimonial-content">
                             <div class="row">
-                                {% for project in project_list %}
+                                {% for game in games_list %}
                                 <div class="col-md-12 col-sm-12">
                                     <!-- Client post -->
                                     <div class="testimonial-item br-white animated">
                                         <!-- Image -->
                                         <!-- Heading -->
-                                        <h4>{{ project.title }}</h4>
+                                        <h4>{{ game.title }}</h4>
                                         {% autoescape off %}
-                                        <p>{{ project.body|linebreaks|cut:"../../../.." }}</p>
+                                        <p>{{ game.body|linebreaks|cut:"../../../.." }}</p>
                                         {% endautoescape %}
                                     </div>
                                 </div>

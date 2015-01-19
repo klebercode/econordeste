@@ -271,3 +271,16 @@ class Project(models.Model):
         verbose_name = _(u'Projeto')
         verbose_name_plural = _(u'Projeto')
         ordering = ['title']
+
+
+class Games(models.Model):
+    title = models.CharField(_(u'Título'), max_length=200)
+    body = tinymce_models.HTMLField(_(u'Conteúdo'))
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _(u'Jogo')
+        verbose_name_plural = _(u'Jogos')
+        ordering = ['title']
