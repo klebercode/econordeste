@@ -66,7 +66,14 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4">
-				<iframe id="myiframe" src="{% url 'soundcloud' %}?pagina=" scrolling="no" frameborder="no" width="100%"></iframe>
+				<!-- <iframe id="myiframe" src="{% url 'soundcloud' %}?pagina=" scrolling="no" frameborder="no" width="100%"></iframe> -->
+				<div id="web-radio" class="br-white radio">
+					<div class="radio-shape">
+						<div class="radio-player">
+							<embed width="100%" height="60" src="http://player.wavestreamer.com/cgi-bin/player2.swf" flashvars="skin=http://player.wavestreamer.com/cgi-bin/kleur/kleur.swf&title=Live Stream&type=sound&file=http://shout02.kinghost.net:8466/;s.mp3&volume=50&13142580629&duration=99999&id=scplayer&autostart=true"></embed>
+						</div>
+					</div>
+			    </div>
 			</div>
 		</div>
 	</div>
@@ -191,9 +198,17 @@
 						fullScreen:"off"
 					});
 
-					var $iframe = $('#myiframe');
-					var $banner = $('.tp-banner-container').height() + 6 + 'px';
-			        $iframe.attr('src', $iframe.attr("src") + $banner);
+
+				   jQuery('.tp-banner-container').resize(function() {
+				   	  var $banner = $('.tp-banner-container').height() + 8 + 'px';
+					  $('#web-radio').css({'height':($banner)});
+					});
+
+			        var $banner = $('.tp-banner-container').height() + 8 + 'px';
+			        $('#web-radio').css({'height':($banner)});
+
+					/*var $iframe = $('#myiframe');
+					$iframe.attr('src', $iframe.attr("src") + $banner);*/
 
 			        $('#myModal').modal('show');
 			});

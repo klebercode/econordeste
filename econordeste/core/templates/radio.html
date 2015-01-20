@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Rádio Eco Nordeste</title>
+    <meta name="description" content="Web Rádio Eco Nordeste">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style type="text/css">
+      body
+      {
+         background-color: #FFFFFF;
+         color: #000000;
+         font-family: Arial;
+         font-size: 13px;
+         margin: 0;
+         padding: 0;
+      }
+      @font-face
+      {
+         font-family: 'Ashby';
+         src: url('ASHBB_.ttf') format('truetype');
+      }
+      a
+      {
+         color: #0000FF;
+         text-decoration: underline;
+      }
+      a:visited
+      {
+         color: #800080;
+      }
+      a:active
+      {
+         color: #FF0000;
+      }
+      a:hover
+      {
+         color: #0000FF;
+         text-decoration: underline;
+      }
+      #Image4
+      {
+         border: 0px #000000 solid;
+      }
+      #wb_Text1
+      {
+         background-color: transparent;
+         border: 0px #000000 solid;
+         padding: 0;
+         text-align: left;
+      }
+      #wb_Text1 div
+      {
+         text-align: left;
+      }
+      #Image9
+      {
+         border: 0px #000000 solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: {{ pagina }}px;">
+      <div id="wb_Shape5" style="width:100%;height:160px;z-index:0;">
+        <img src="{{ STATIC_URL }}img/radio_shape.png" id="Shape5" alt="" style="border-width:0;width:100%;height:160px;">
+      </div>
+      <!-- radioweb -->
+      <div id="Html1" style="position:absolute;left:2px;top:102px;width:100%;height:60px;z-index:1">
+        <embed width="100%" height="60" src="http://player.wavestreamer.com/cgi-bin/player2.swf" flashvars="skin=http://player.wavestreamer.com/cgi-bin/kleur/kleur.swf&title=Live Stream&type=sound&file=http://shout02.kinghost.net:8466/;s.mp3&volume=40&13142580629&duration=99999&id=scplayer&autostart=true"></embed>
+      </div>
+      <div id="wb_Image4" style="position:absolute;left:106px;top:33px;width:100%;height:69px;z-index:2;">
+        <img src="{{ STATIC_URL }}img/radio_logo.jpg" id="Image4" alt="" style="width:165px;height:69px;">
+      </div>
+      <div id="wb_Text1" style="position:absolute;left:14px;top:11px;width:100%;height:24px;z-index:3;text-align:left;">
+        <span style="color:#2F4F4F;font-family:Ashby;font-size:19px;">WEB RÁDIO</span>
+      </div>
+      <div id="wb_Image9" style="position:absolute;left:3px;top:31px;width:100%;height:73px;z-index:4;">
+        <img src="{{ STATIC_URL }}img/radio_bg.jpg" id="Image9" alt="" style="width:105px;height:73px;">
+      </div>
+    </div>
+  </body>
+</html>

@@ -228,6 +228,31 @@ hr{
 	background: rgba(255,184,0,0.6) !important;
 }
 
+/* Radio */
+
+.radio {
+	margin: 0;
+	padding: 4px;
+	border-radius: 2px;
+}
+
+.radio .radio-shape {
+	background: url(../img/web-radio.png) no-repeat top center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.radio .radio-shape .radio-player {
+	position: absolute;
+	bottom: -6px;
+	width: 100%;
+}
+
 /* Progress Bar Color */
 
 .progress-bar-success{

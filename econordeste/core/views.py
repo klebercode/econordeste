@@ -52,7 +52,7 @@ def soundcloud(request):
     if pagina:
         context['pagina'] = pagina
 
-    return render(request, 'soundcloud.html', context)
+    return render(request, 'radio.html', context)
     # return redirect('http://saloa.pe.gov.br/transparencia/')
 
 
