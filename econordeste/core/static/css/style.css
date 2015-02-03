@@ -397,7 +397,7 @@ strong{
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 	color: #444;
 	font-size: 11px;
-	/* height: 160px; */
+	height: 185px;
 	position: relative;
 	width: 100%;
 	z-index: 999;
@@ -419,7 +419,7 @@ strong{
 .header .header-info .search{
 	border: 1px dashed #ECECEC;
 	max-width: 250px;
-	margin: 30px auto;
+	margin: 15% auto;
 }
 
 .header .header-info .search > form > .input-group > input,
@@ -488,6 +488,11 @@ strong{
 .header .logo-aguas img {
 	/* height: 90px; */
 	/* padding-top: -10px; */
+}
+
+.header .logo-petrobas img,
+.header .logo-econordeste img {
+	padding: 10% 0;
 }
 
 .header .logo h1{
@@ -1656,6 +1661,10 @@ a.btn-default i{
 	margin: 0px;
 	margin-top: 15px;
 	font-size: 20px;
+}
+
+.inner-page .aboutus .aboutus-member .member-content p{
+	font-size: 12px;
 }
 
 .inner-page .aboutus .aboutus-member .member-content .social{
