@@ -1,12 +1,10 @@
 # coding: utf-8
 from django.contrib import admin
 
-from mce_filebrowser.admin import MCEFilebrowserAdmin
-
 from econordeste.blog.models import Entry
 
 
-class EntryAdmin(MCEFilebrowserAdmin):
+class EntryAdmin(admin.ModelAdmin):
     list_filter = ('created', 'author__username', 'tags',
                    'categories')
     list_display = ('title', 'created', 'author', 'publish')

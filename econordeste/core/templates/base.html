@@ -8,7 +8,7 @@
 		<title>{{ enterprise.name }} - {{ enterprise.description }}{% block title %}{% endblock title %}</title>
 		<!-- Description, Keywords and Author -->
 		<meta name="description" content="Projeto Águas de Garanhuns">
-		<meta name="keywords" content="eco, ecologia, garanhuns, pernambuco, petrobras, nordeste, eco nordeste, aguas, aguas garanhuns, nascente">
+		<meta name="keywords" content="eco, ecologia, garanhuns, pernambuco, petrobras, nordeste, aguas, garanhuns, nascente">
 		<meta name="author" content="OW7">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,9 @@
 									<a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo_aguas-de-garanhuns.png" class="img-responsive" alt="Águas de Garanhuns" title="Início" /></a>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-4">
+							<div class="col-md-3 col-sm-3">
 								<!-- Search Box -->
+								<br>
 								<div class="search">
 									<form role="form" action="/noticias/" method="get">
 										<div class="input-group">
@@ -79,14 +80,28 @@
 								</div>
 							</div>
 
-							<div class="col-md-5 col-sm-5">
-								<div class="col-md-6 col-sm-6 logo-petrobas">
+							<div class="col-md-6 col-sm-6">
+								<div class="col-md-5 col-sm-5">
 									Patrocínio
-									<a href="http://www.petrobras.com.br/" target="_blank"><img src="{{ STATIC_URL }}img/logo_petrobras.png" class="img-responsive" alt="" /></a>
+									<div class="logo-top">
+										<a href="http://www.petrobras.com.br/" target="_blank">
+											<img src="{{ STATIC_URL }}img/logo_petrobras.png" class="img-responsive" alt="" />
+										</a>
+									</div>
 								</div>
-								<div class="col-md-6 col-sm-6 logo-econordeste">
+								<div class="col-md-4 col-sm-4">
+									<br>
+									<div class="logo-top">
+										<a href="http://www.petrobras.com.br/" target="_blank">
+											<img src="{{ STATIC_URL }}img/logo_governo-federal.jpg" class="img-responsive" alt="" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3">
 									Executora
-									<img src="{{ STATIC_URL }}img/logo_eco-nordeste.png" class="img-responsive" alt="" />
+									<div class="logo-top">
+										<img src="{{ STATIC_URL }}img/logo_eco-nordeste.png" class="img-responsive" alt="" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -167,25 +182,50 @@
 			<div class="footer">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3 col-sm-8">
-							<!-- Footer Widget -->
-							<div class="footer-widget">
-								<address>
-									<i class="fa fa-home br-black"></i> {{ enterprise.address }}, {{ enterprise.number }} <br />
-									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.district }}, {{ enterprise.city }}/{{ enterprise.state }}  <br />
-									&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.country }} - {{ enterprise.cep }} <br />
-									<span><i class="fa fa-phone br-black"></i> {{ enterprise.phone1 }}</span>
-									<span><i class="fa fa-envelope-o br-black"></i> <a href="{% url 'contact' %}">{{ enterprise.email }}</a></span>
-								</address>
+						<div class="col-md-12">
+							<div class="col-md-4 col-sm-4">
+								<!-- Footer Widget -->
+								<div class="footer-widget">
+									<address>
+										<i class="fa fa-home br-black"></i> {{ enterprise.address }}, {{ enterprise.number }} <br />
+										&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.district }}, {{ enterprise.city }}/{{ enterprise.state }}  <br />
+										&nbsp; &nbsp; &nbsp; &nbsp; {{ enterprise.country }} - {{ enterprise.cep }} <br />
+										<span><i class="fa fa-phone br-black"></i> {{ enterprise.phone1 }}</span>
+										<span><i class="fa fa-envelope-o br-black"></i> <a href="{% url 'contact' %}">{{ enterprise.email }}</a></span>
+									</address>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-5 col-sm-8">
-							<iframe width="100%" height="240" src="//www.youtube.com/embed/7A_a4FRz-AM" frameborder="0" allowfullscreen></iframe>
-						</div>
-						<div class="col-md-4 col-sm-8">
-							<!-- Footer Widget -->
-							<div class="footer-widget">
-								<div class="fb-like-box" data-href="https://www.facebook.com/projetoaguasdegaranhuns" class="img-responsive" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+							<div class="col-md-3 col-sm-3">
+								<a href="{% url 'games' %}">
+									<img src="{{ STATIC_URL }}img/games-banner.jpg" alt="" class="img-responsive" style="margin-top: 30px;">
+								</a>
+								<!-- <ul>
+									<li>
+										<a href="{% url 'project' %}">Projeto</a>
+									</li>
+									<li>
+										<a href="{% url 'blog:home' %}">Notícias</a>
+									</li>
+									<li>
+										<a href="{% url 'event:home' %}">Agenda</a>
+									</li>
+									<li>
+										<a href="{% url 'team' %}">Equipe</a>
+									</li>
+									<li>
+										<a href="{% url 'games' %}">Jogos</a>
+									</li>
+									<li>
+										<a href="{% url 'contact' %}">Contato</a>
+									</li>
+								</ul> -->
+							</div>
+							<div class="col-md-1"></div>
+							<div class="col-md-4 col-sm-4">
+								<!-- Footer Widget -->
+								<div class="footer-widget">
+									<div class="fb-like-box" data-href="https://www.facebook.com/projetoaguasdegaranhuns" class="img-responsive" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+								</div>
 							</div>
 						</div>
 					</div>

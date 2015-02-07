@@ -84,49 +84,61 @@
 
 	<div class="inner-page">
 		<div class="container">
-			<div class="page-mainbar column-index">
-				<!-- Masonry Container -->
-				<div id="container" class="grid">
-					<!-- Grid Item -->
-					{% for blog in blog_list %}
-					<div class="item">
-						<!-- Entry for each grid -->
-						<div class="grid-entry br-white animated">
-							<!-- Grid Image Container -->
-							<div class="grid-img">
-								<!-- Image -->
-								{% thumbnail blog.image "600" crop="center" format="PNG" as im %}
-			                        <img src="{{ im.url }}" alt="{{ blog.title }}" title="{{ blog.title }}" class="img-responsive">
-			                    {% empty %}
-			                        <img src="http://placehold.it/300x300/cccccc/FFFFFF" alt="{{ blog.title }}" title="{{ blog.title }}">
-			                    {% endthumbnail %}
-								<!-- Grid Image Hover Effect -->
-								<span class="grid-img-hover"></span>
-								<!-- Grid Image Hover Icon -->
-								<a href="{{ blog.image.url }}" class="grid-img-link">
-									<i class="fa fa-search-plus hover-icon icon-left"></i>
-								</a>
-								<a href="{{ blog.get_absolute_url }}">
-									<i class="fa fa-link hover-icon icon-right"></i>
-								</a>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="page-mainbar column-index">
+						<!-- Masonry Container -->
+						<div id="container" class="grid">
+							<!-- Grid Item -->
+							{% for blog in blog_list %}
+							<div class="item">
+								<!-- Entry for each grid -->
+								<div class="grid-entry br-white animated">
+									<!-- Grid Image Container -->
+									<div class="grid-img">
+										<!-- Image -->
+										{% thumbnail blog.image "600" crop="center" format="PNG" as im %}
+					                        <img src="{{ im.url }}" alt="{{ blog.title }}" title="{{ blog.title }}" class="img-responsive">
+					                    {% empty %}
+					                        <img src="http://placehold.it/300x300/cccccc/FFFFFF" alt="{{ blog.title }}" title="{{ blog.title }}">
+					                    {% endthumbnail %}
+										<!-- Grid Image Hover Effect -->
+										<span class="grid-img-hover"></span>
+										<!-- Grid Image Hover Icon -->
+										<a href="{{ blog.image.url }}" class="grid-img-link">
+											<i class="fa fa-search-plus hover-icon icon-left"></i>
+										</a>
+										<a href="{{ blog.get_absolute_url }}">
+											<i class="fa fa-link hover-icon icon-right"></i>
+										</a>
+									</div>
+									<!-- Grid entry information -->
+									<div class="entry-info">
+										<!-- Heading -->
+										<h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+										<!-- Paragraph -->
+										<!--
+										{% autoescape off %}
+										<p style="color: #375731;">{{ blog.body|truncatewords_html:20 }}</p>
+										{% endautoescape %}
+										 -->
+									</div>
+								</div>
 							</div>
-							<!-- Grid entry information -->
-							<div class="entry-info">
-								<!-- Heading -->
-								<h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
-								<!-- Paragraph -->
-								<!--
-								{% autoescape off %}
-								<p style="color: #375731;">{{ blog.body|truncatewords_html:20 }}</p>
-								{% endautoescape %}
-								 -->
-							</div>
+							{% endfor %}
+							<div class="clearfix"></div>
 						</div>
 					</div>
-					{% endfor %}
-					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="home-video br-white">
+						{% for video in video_list %}
+							<iframe width="100%" height="200" src="{{ video.embed }}" frameborder="0" allowfullscreen></iframe><br>
+						{% endfor %}
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 

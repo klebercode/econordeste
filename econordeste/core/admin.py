@@ -1,10 +1,8 @@
 # coding: utf-8
 from django.contrib import admin
 
-from mce_filebrowser.admin import MCEFilebrowserAdmin
-
 from econordeste.core.models import (Enterprise, Social, Category, Banner,
-                                     Team, Project, Games)
+                                     Team, Project, Games, Video)
 from econordeste.core.forms import TeamForm
 
 
@@ -43,6 +41,20 @@ class GamesAdmin(admin.ModelAdmin):
     search_fields = ('title', 'body')
 
 
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'get_url')
+    search_fields = ('title', 'body')
+
+    def get_url(self, obj):
+        if obj.url:
+            return u'<a href="%s" target="_blank">%s</a>' % (obj.url, obj.url)
+        else:
+            return obj.url
+    get_url.allow_tags = True
+    get_url.short_description = u'Endereço do Vídeo'
+    get_url.admin_order_field = 'url'
+
+
 admin.site.register(Enterprise, EnterpriseAdmin)
 admin.site.register(Social)
 admin.site.register(Category, CategoryAdmin)
@@ -50,3 +62,4 @@ admin.site.register(Banner, BannerAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Games, GamesAdmin)
+admin.site.register(Video, VideoAdmin)

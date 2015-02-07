@@ -2,7 +2,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.template.defaultfilters import slugify
 
 import uuid
 import os
@@ -284,3 +283,22 @@ class Games(models.Model):
         verbose_name = _(u'Jogo')
         verbose_name_plural = _(u'Jogos')
         ordering = ['title']
+
+
+class Video(models.Model):
+    title = models.CharField(_(u'Título'), max_length=100)
+    body = models.TextField(_(u'Descrição'), blank=True, null=True)
+    url = models.URLField(_(u'Endereço do Vídeo'))
+    embed = models.URLField(_(u'Embed'), blank=True, null=True, editable=False)
+
+    def __unicode__(self):
+        return unicode(self.title)
+
+    def save(self, *args, **kwargs):
+        self.embed = self.url.replace('watch?v=', 'embed/')
+        super(Video, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = _(u'Vídeo')
+        verbose_name_plural = _(u'Vídeos')
+        ordering = ['-pk']

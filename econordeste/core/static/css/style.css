@@ -397,7 +397,7 @@ strong{
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 	color: #444;
 	font-size: 11px;
-	height: 185px;
+	max-height: 185px;
 	position: relative;
 	width: 100%;
 	z-index: 999;
@@ -416,10 +416,23 @@ strong{
 	border-radius: 40px;
 }
 
-.header .header-info .search{
+/* .header .header-info .search{
 	border: 1px dashed #ECECEC;
 	max-width: 250px;
-	margin: 15% auto;
+	margin: 25% auto;
+} */
+.header .header-info .search {
+    height: 10em;
+    position: relative;
+	max-width: 250px;
+}
+.header .header-info form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 .header .header-info .search > form > .input-group > input,
@@ -490,9 +503,17 @@ strong{
 	/* padding-top: -10px; */
 }
 
-.header .logo-petrobas img,
-.header .logo-econordeste img {
-	padding: 10% 0;
+.header .logo-top {
+    height: 10em;
+    position: relative
+}
+.header .logo-top img {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 
 .header .logo h1{
@@ -4311,4 +4332,10 @@ div.ppt {
 	.footer .footer-widget{
 		margin-bottom: 30px;
 	}
+}
+
+.home-video {
+	margin-top: 45px;
+	padding: 4px;
+	border-radius: 2px;
 }
