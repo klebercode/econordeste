@@ -18,7 +18,7 @@ psycopg2==2.5.3
 pystache==0.5.4
 python-decouple==2.2
 pytz==2014.2
-sorl-thumbnail==11.12
+sorl-thumbnail==12.2
 static==1.0.2
 static3==0.5.1
 wsgiref==0.1.2
