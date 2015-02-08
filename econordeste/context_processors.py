@@ -1,7 +1,7 @@
 # coding: utf-8
 from django.shortcuts import get_object_or_404
 
-from econordeste.core.models import Enterprise, Video
+from econordeste.core.models import Enterprise, Video, Logo
 
 
 def enterprise_proc(request):
@@ -12,10 +12,12 @@ def enterprise_proc(request):
         enterprise = ''
 
     video_list = Video.objects.all()[:2]
+    logo_list = Logo.objects.all()[:2]
 
     return {
         'enterprise': enterprise,
         'video_list': video_list,
+        'logo_list': logo_list,
     }
 
 
@@ -27,10 +29,12 @@ class EnterpriseExtraContext(object):
         enterprise = ''
 
     video_list = Video.objects.all()[:2]
+    logo_list = Logo.objects.all()[:2]
 
     extra_context = {
         'enterprise': enterprise,
         'video_list': video_list,
+        'logo_list': logo_list,
         }
 
     def get_context_data(self, **kwargs):

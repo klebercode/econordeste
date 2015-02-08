@@ -2,7 +2,7 @@
 from django.contrib import admin
 
 from econordeste.core.models import (Enterprise, Social, Category, Banner,
-                                     Team, Project, Games, Video)
+                                     Team, Project, Games, Video, Logo)
 from econordeste.core.forms import TeamForm
 
 
@@ -63,3 +63,4 @@ admin.site.register(Team, TeamAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Games, GamesAdmin)
 admin.site.register(Video, VideoAdmin)
+admin.site.register(Logo)

@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 import uuid
 import os
 
+from filebrowser.fields import FileBrowseField
 from sorl.thumbnail import ImageField
 from tinymce import models as tinymce_models
 
@@ -302,3 +303,19 @@ class Video(models.Model):
         verbose_name = _(u'Vídeo')
         verbose_name_plural = _(u'Vídeos')
         ordering = ['-pk']
+
+
+class Logo(models.Model):
+    title = models.CharField(_(u'Título'), max_length=100)
+    image = FileBrowseField(_(u'Logo'), max_length=200, directory="logos/",
+                            extensions=[".jpg", ".png"])
+    link = models.URLField(_(u'Endereço do Vídeo'))
+    order = models.IntegerField(_(u'Ordem'), default=0)
+
+    def __unicode__(self):
+        return unicode(self.title)
+
+    class Meta:
+        verbose_name = _(u'Logo')
+        verbose_name_plural = _(u'Logos')
+        ordering = ['order', 'title']
